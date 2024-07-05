@@ -1136,3 +1136,80 @@ Processing by ListsController#show as HTML
 Completed 200 OK in 81ms (Views: 35.0ms | ActiveRecord: 13.2ms | Allocations: 27958)
 
 
+Started GET "/lists/1" for ::1 at 2024-07-05 12:23:56 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:34:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:2
+  [1m[36mMovie Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:5
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:18
+  [1m[36mBookmark Load (0.1ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."list_id" = $1 AND "bookmarks"."movie_id" = $2 LIMIT $3[0m  [["list_id", 1], ["movie_id", 5], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:19
+  [1m[36mReview Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:41
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:44
+  [1m[36mMovie Load (0.5ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY "movies"."title" ASC[0m
+  ↳ app/views/bookmarks/_modal.html.erb:12
+  Rendered bookmarks/_modal.html.erb (Duration: 4.8ms | Allocations: 3207)
+  Rendered lists/show.html.erb within layouts/application (Duration: 31.3ms | Allocations: 12748)
+  Rendered shared/_navbar.html.erb (Duration: 2.7ms | Allocations: 789)
+  Rendered shared/_flashes.html.erb (Duration: 1.7ms | Allocations: 190)
+  Rendered layout layouts/application.html.erb (Duration: 67.2ms | Allocations: 23404)
+Completed 200 OK in 118ms (Views: 64.6ms | ActiveRecord: 14.1ms | Allocations: 27790)
+
+
+Started GET "/" for ::1 at 2024-07-05 12:23:57 +0200
+Processing by ListsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+  ↳ app/views/lists/index.html.erb:13
+  [1m[36mActiveStorage::Attachment Load (0.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (Duration: 31.0ms | Allocations: 2370)
+  Rendered shared/_navbar.html.erb (Duration: 0.7ms | Allocations: 589)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 39.7ms | Allocations: 13039)
+Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 1.1ms | Allocations: 13397)
+
+
+Started GET "/lists/1" for ::1 at 2024-07-05 12:23:58 +0200
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (11.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:34:in `set_list'
+  Rendering layout layouts/application.html.erb
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "List"], ["name", "photo"], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:2
+  [1m[36mMovie Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:5
+  [1m[36mMovie Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:9
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "bookmarks" ON "movies"."id" = "bookmarks"."movie_id" WHERE "bookmarks"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:18
+  [1m[36mBookmark Load (0.1ms)[0m  [1m[34mSELECT "bookmarks".* FROM "bookmarks" WHERE "bookmarks"."list_id" = $1 AND "bookmarks"."movie_id" = $2 LIMIT $3[0m  [["list_id", 1], ["movie_id", 5], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:19
+  [1m[36mReview Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reviews" WHERE "reviews"."list_id" = $1 LIMIT $2[0m  [["list_id", 1], ["LIMIT", 1]]
+  ↳ app/views/lists/show.html.erb:41
+  [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."list_id" = $1[0m  [["list_id", 1]]
+  ↳ app/views/lists/show.html.erb:44
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" ORDER BY "movies"."title" ASC[0m
+  ↳ app/views/bookmarks/_modal.html.erb:12
+  Rendered bookmarks/_modal.html.erb (Duration: 1.9ms | Allocations: 2970)
+  Rendered lists/show.html.erb within layouts/application (Duration: 10.5ms | Allocations: 11029)
+  Rendered shared/_navbar.html.erb (Duration: 0.4ms | Allocations: 585)
+  Rendered shared/_flashes.html.erb (Duration: 0.0ms | Allocations: 24)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 20932)
+Completed 200 OK in 30ms (Views: 14.7ms | ActiveRecord: 13.1ms | Allocations: 21736)
+
+
